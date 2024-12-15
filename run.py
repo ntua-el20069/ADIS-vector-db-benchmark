@@ -43,6 +43,16 @@ def run(
         if any(fnmatch.fnmatch(name, dataset) for dataset in datasets)
     }
 
+    # Experiments count
+    count_experiments = 0
+    print("\n\n*****\t Experiments count \t*****")
+    for engine_name, engine_config in selected_engines.items():
+        for dataset_name, dataset_config in selected_datasets.items():
+            count_experiments += 1
+            print(f"{count_experiments}. Engine: {engine_name} - Dataset: {dataset_name}")
+    print(37*"*")
+    # End of experiments count
+
     for engine_name, engine_config in selected_engines.items():
         for dataset_name, dataset_config in selected_datasets.items():
             print(f"Running experiment: {engine_name} - {dataset_name}")
