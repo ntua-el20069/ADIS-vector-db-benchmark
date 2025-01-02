@@ -5,5 +5,4 @@ __pycache__
 NOTES.md
 .venv/
 
-results/*
 tools/custom/data.json
