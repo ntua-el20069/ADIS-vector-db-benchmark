@@ -1,0 +1,22 @@
+{
+  "params": {
+    "dataset": "laion-small-clip",
+    "experiment": "qdrant-m-64-ef-256",
+    "engine": "qdrant",
+    "parallel": 1,
+    "config": {
+      "hnsw_ef": 64
+    }
+  },
+  "results": {
+    "total_time": 40.013237915998616,
+    "mean_time": 0.0076290130529509045,
+    "mean_precisions": 0.9932400000000001,
+    "std_time": 0.0032154792292159815,
+    "min_time": 0.00311625800532056,
+    "max_time": 0.05507407899858663,
+    "rps": 124.95864519878894,
+    "p95_time": 0.0109495670945762,
+    "p99_time": 0.012853891613922318
+  }
+}

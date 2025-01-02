@@ -1,0 +1,20 @@
+{
+  "params": {
+    "experiment": "qdrant-m-32-ef-256",
+    "engine": "qdrant",
+    "dataset": "random-match-keyword-100-angular-filters",
+    "parallel": 16,
+    "optimizers_config": {
+      "memmap_threshold": 10000000
+    },
+    "hnsw_config": {
+      "m": 32,
+      "ef_construct": 256
+    }
+  },
+  "results": {
+    "post_upload": {},
+    "upload_time": 31.43318836400431,
+    "total_time": 432.1319368510012
+  }
+}
