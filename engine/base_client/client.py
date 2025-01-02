@@ -42,7 +42,15 @@ class BaseClient:
         experiments_file = (
             f"{self.name}-{dataset_name}-search-{search_id}-{timestamp}.json"
         )
-        result_path = RESULTS_DIR / experiments_file
+
+        # make separate directory for each dataset
+        DATASET_RESULTS_DIR = RESULTS_DIR / f"{dataset_name}"
+        DATASET_RESULTS_DIR.mkdir(exist_ok=True)
+
+        ENGINE_RESULTS_DIR = DATASET_RESULTS_DIR / f"{self.name}"
+        ENGINE_RESULTS_DIR.mkdir(exist_ok=True)
+
+        result_path = ENGINE_RESULTS_DIR / experiments_file
         with open(result_path, "w") as out:
             out.write(
                 json.dumps(
@@ -66,7 +74,17 @@ class BaseClient:
         now = datetime.now()
         timestamp = now.strftime("%Y-%m-%d-%H-%M-%S")
         experiments_file = f"{self.name}-{dataset_name}-upload-{timestamp}.json"
-        with open(RESULTS_DIR / experiments_file, "w") as out:
+
+        # make separate directory for each dataset
+        DATASET_RESULTS_DIR = RESULTS_DIR / f"{dataset_name}"
+        DATASET_RESULTS_DIR.mkdir(exist_ok=True)
+
+        ENGINE_RESULTS_DIR = DATASET_RESULTS_DIR / f"{self.name}"
+        ENGINE_RESULTS_DIR.mkdir(exist_ok=True)
+
+        result_path = ENGINE_RESULTS_DIR / experiments_file
+
+        with open(result_path, "w") as out:
             upload_stats = {
                 "params": {
                     "experiment": self.name,
