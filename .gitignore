@@ -4,5 +4,5 @@ __pycache__
 *.pyc
 NOTES.md
 .venv/
-
+.vector-db_venv/
 tools/custom/data.json
