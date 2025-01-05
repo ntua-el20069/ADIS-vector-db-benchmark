@@ -1,0 +1,22 @@
+{
+  "params": {
+    "dataset": "gist-960-angular",
+    "experiment": "milvus-m-32-ef-128",
+    "engine": "milvus",
+    "parallel": 100,
+    "config": {
+      "ef": 256
+    }
+  },
+  "results": {
+    "total_time": 5.8191184000024805,
+    "mean_time": 0.04487056300001131,
+    "mean_precisions": 0.0024799999999999996,
+    "std_time": 0.011027424692009907,
+    "min_time": 0.02017580000392627,
+    "max_time": 0.11452510000526672,
+    "rps": 171.8473368748733,
+    "p95_time": 0.06651499999716179,
+    "p99_time": 0.08591320299681683
+  }
+}
