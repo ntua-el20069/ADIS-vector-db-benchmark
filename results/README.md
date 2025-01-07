@@ -7,7 +7,7 @@
 - `index_params`: the `M` and `efConstruction` specified by the experiment
 
 ### search parameters
-| **Search** | **parallel** | **ef** |
+| **Search** | **parallel** | **config: ef** |
 |------------|--------------|--------|
 | **search-0** | 1 | 128 |
 | **search-1** | 1 | 256 |
@@ -23,8 +23,8 @@
 - `optimizers_config` : `memmap_threshold` is set to `10000000`
 - `hnsw_config`: the `m` and `ef_construct` specified by the experiment
 
-### search
-| **Search** | **parallel** | **hnsw_ef** |
+### search parameters
+| **Search** | **parallel** | **config: hnsw_ef** |
 |------------|--------------|--------|
 | **search-0** | 1 | 64 |
 | **search-1** | 1 | 128 |
