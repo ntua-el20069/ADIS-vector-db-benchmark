@@ -55,9 +55,10 @@ def print_in_color(color="yellow"):
 def show_upload_params(params : dict) -> None:
     print("Upload parameters:")
     print(f"parallel : {params.get('parallel', '')}")
-    print(f"index_params : {params.get('index_params', '')}")
-    print(f"hnsw_config : {params.get('hnsw_config', '')}")
-    print(f"optimizers_config : {params.get('optimizers_config', '')}")
+    if params.get('engine') == 'milvus': print(f"index_params : {params.get('index_params', '')}")
+    if params.get('engine') == 'qdrant':
+        print(f"hnsw_config : {params.get('hnsw_config', '')}")
+        print(f"optimizers_config : {params.get('optimizers_config', '')}")
     print()
     
 def show_search_params(params : dict) -> None:
@@ -96,7 +97,8 @@ def summary(
     all_parallel: bool = typer.Option(False, help="Include all parallelism levels (1 and 100) (skip the below parameter)", prompt="include all parallelism levels - (and skip next prompt)? "),
     parallel: int = typer.Option(1, help="Specify the parallelism level (1 or 100)", prompt="parallelism for search: "),
     all_ef: bool = typer.Option(False, help="Include all ef levels (64, 128, 256, 512) (skip the below parameter)", prompt="include all ef levels - (and skip next prompt)? "),
-    ef: int = typer.Option(128, help="config: ef for search operation (for HNSW algorithm) (64 - for qdrant only, for both DBs: 128, 256, 512)", prompt="ef for search: ")
+    ef: int = typer.Option(128, help="config: ef for search operation (for HNSW algorithm) (64 - for qdrant only, for both DBs: 128, 256, 512)", prompt="ef for search: "),
+    slow_show: bool = typer.Option(False, help="set if you want to see each experiment after pressing Enter")
 ):
     """
     Examples:
@@ -174,7 +176,7 @@ def summary(
                         ( all_ef or params.get('config', {}).get('ef', 0) == ef or params.get('config', {}).get('hnsw_ef', 0) == ef) :
                         show_search_params(params)
                         show_search_results(results)
-
+        if slow_show: input("Press Enter to proceed to next dataset: ")
 
 if __name__ == "__main__":
     app()
