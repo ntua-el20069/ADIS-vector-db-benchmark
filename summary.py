@@ -12,25 +12,29 @@ app = typer.Typer()
 tested_datasets = [
 	"random-100-euclidean", 
 	"glove-25-angular",
+    "glove-100-angular",
 	"random-match-keyword-100-angular-no-filters",
 	"random-match-keyword-100-angular-filters", 
 	"h-and-m-2048-angular-no-filters",
 	"h-and-m-2048-angular-filters",
 	"gist-960-euclidean",
 	"laion-small-clip",
-	"dbpedia-openai-1M-1536-angular"
+#	"dbpedia-openai-1M-1536-angular",
+#   "deep-image-96-angular"
 ]
 
 size = {
     "random-100-euclidean" : 0,
     "glove-25-angular" : 0,
+    "glove-100-angular" : 0,
     "random-match-keyword-100-angular-no-filters" : 0,
     "random-match-keyword-100-angular-filters" : 0,
     "h-and-m-2048-angular-no-filters" : 0,
     "h-and-m-2048-angular-filters" : 0,
     "gist-960-euclidean" : 0,
     "laion-small-clip" : 0,
-    "dbpedia-openai-1M-1536-angular" : 0
+    "dbpedia-openai-1M-1536-angular" : 0,
+    "deep-image-96-angular" : 0,
 } # TODO # assign to all 0 now 
 
 search_metrics = ["total_time", "mean_time", "mean_precisions", "std_time", "min_time", "max_time", "rps", "p95_time", "p99_time"]
